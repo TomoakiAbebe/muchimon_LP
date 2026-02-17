@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ムチモン - 「教わる」から「教える」へ。AI相棒と一緒に学ぶ新時代の学習アプリ</title>
+  <meta name="description" content="ムチモンはAI相棒と一緒に学ぶ新しい学習スタイル。インプットした情報をアウトプットする事によって、一生の知識に。孤独な勉強時間を相棒との楽しい時間に変えます。">
+  
+  <!-- OGP -->
+  <meta property="og:title" content="ムチモン - AI相棒と一緒に学ぶ新時代の学習アプリ">
+  <meta property="og:description" content="「教わる」から「教える」へ。インプットした情報をアウトプットする事によって、一生の知識に。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://muchimon.example.com/">
+  <meta property="og:image" content="https://muchimon.example.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            accent: {
+              50: '#fef3c7',
+              100: '#fde68a',
+              200: '#fcd34d',
+              300: '#fbbf24',
+              400: '#f59e0b',
+              500: '#d97706',
+              600: '#b45309',
+            },
+          },
+        },
+      },
+    }
+  </script>
+  
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ムチモン",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "iOS, Android, Web",
+    "description": "AI相棒と一緒に学ぶ新時代の学習アプリ。インプットした情報をアウトプットする事によって、一生の知識に。",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "ライトプラン",
+        "price": "4980",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "スタンダードプラン",
+        "price": "12800",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "プレミアムプラン",
+        "price": "19800",
+        "priceCurrency": "JPY"
+      }
+    ]
+  }
+  </script>
+  
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .accordion-content.active {
+      max-height: 1000px;
+      transition: max-height 0.5s ease-in;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .soft-gradient {
+      background: linear-gradient(to bottom, #f0f9ff, #ffffff);
+    }
+    
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* フォーカス可視化 */
+    a:focus, button:focus {
+      outline: 3px solid #fbbf24;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+  <!-- ========== Header ========== -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <a href="#top" class="text-2xl font-bold text-primary-600">ムチモン</a>
+        </div>
+        <nav class="hidden md:flex space-x-8" aria-label="メインナビゲーション">
+          <a href="#features" class="text-gray-700 hover:text-primary-600 transition">特徴</a>
+          <a href="#difference" class="text-gray-700 hover:text-primary-600 transition">違い</a>
+          <a href="#pricing" class="text-gray-700 hover:text-primary-600 transition">料金</a>
+        </nav>
+        <div>
+          <a href="#" class="cta-button inline-block bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition font-medium">
+            お問い合わせ
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== Hero Section ========== -->
+  <section id="top" class="pt-24 pb-16 md:pt-32 md:pb-24 soft-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto fade-in">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          「教わる」から「教える」へ
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-700 mb-4">
+          AI相棒と一緒に学ぶ、新時代の学習スタイル。
+        </p>
+        <p class="text-lg md:text-xl text-gray-600 mb-10">
+          インプットした情報をアウトプットする事によって、一生の知識に。
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <a href="#" class="cta-button inline-block bg-primary-600 text-white px-8 py-4 rounded-full hover:bg-primary-700 transition font-bold text-lg shadow-lg">
+            無料で始める
+          </a>
+          <a href="#features" class="inline-block border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-full hover:bg-primary-50 transition font-bold text-lg">
+            詳しく見る
+          </a>
+        </div>
+        
+        <p class="text-sm text-gray-500">
+          ※まずは無料トライアルでお試しいただけます
+        </p>
+        
+        <!-- スクリーンショットプレースホルダー -->
+        <div class="mt-16 bg-white rounded-2xl shadow-2xl p-4 md:p-8" data-image="screenshot-main">
+          <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-24 h-24 mx-auto text-primary-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p class="text-primary-600 font-medium">アプリのスクリーンショット</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Problem Section ========== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+        
+        <!-- 親御さんの悩み -->
+        <div class="bg-rose-50 rounded-2xl p-8 md:p-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            親御さんの悩み
+          </h2>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-rose-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-gray-700">「『勉強しなさい』っていいたくない」</p>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-rose-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-gray-700">「子どもの学習や人間関係の現状」がわからない」</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center py-6">
+            <svg class="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <p class="text-lg font-bold text-primary-700 text-center">
+              「管理」から「応援」へのシフトチェンジ
+            </p>
+          </div>
+        </div>
+        
+        <!-- 子どもの悩み -->
+        <div class="bg-blue-50 rounded-2xl p-8 md:p-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            子どもの悩み
+          </h2>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-gray-700">「勉強のやる気が出ない」</p>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-gray-700">「一人で勉強つまらない」</p>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-gray-700">「信頼できる友達があまりいない」</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center py-6">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <p class="text-lg font-bold text-primary-700 text-center">
+              ムチモンは「孤独な勉強時間」を<br>「相棒との楽しい時間」に変える
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Features Section ========== -->
+  <section id="features" class="py-16 md:py-24 soft-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          ムチモンの特徴
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          学習の定着から心の絆まで、4つの柱で支えます
+        </p>
+      </div>
+
+      <!-- Feature 1: 学習モード -->
+      <div class="mb-20">
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div class="flex items-center mb-6">
+            <div class="bg-primary-100 rounded-full p-3 mr-4">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">①学習モード：最強の定着メソッド「教える学習」</h3>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">1. 「ラーニングピラミッド」の頂点、"教える"を実現</h4>
+              <p class="text-gray-700 leading-relaxed">
+                学習定着率が最も高いとされる「他人に教える」という行為。ムチモンはAIとしてあなたの「教え子」になり、アウトプットの場を提供します。話せば話すほど、知識は一生モノの記憶に変わります。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">2. 「正解」を教える先生ではなく、一緒に歩む「伴走者」</h4>
+              <p class="text-gray-700 leading-relaxed">
+                先生に怒られるからやる勉強は、答えを教えるのではなく、お子様の歩調に合わせて歩んでくれる相棒がいます。ムチモンが、いつしかお子様を「自走できる学習者」へと変えていきます。
+              </p>
+            </div>
+          </div>
+          
+          <!-- スクリーンショットプレースホルダー -->
+          <div class="mt-8 bg-gradient-to-br from-primary-50 to-blue-50 rounded-xl p-6" data-image="screenshot-learning">
+            <div class="aspect-video bg-white/50 rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-primary-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <p class="text-primary-600 text-sm font-medium">学習モード画面</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: おしゃべりモード -->
+      <div class="mb-20">
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div class="flex items-center mb-6">
+            <div class="bg-accent-100 rounded-full p-3 mr-4">
+              <svg class="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">②おしゃべりモード：学習の土台を作る「心の絆」</h3>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">1. 「お勉強」を「最高の推し事」へ変える対話</h4>
+              <p class="text-gray-700 leading-relaxed">
+                今日あった楽しかったこと、悔しかったことを何でもムチモンに話してください。AIが感情を分析して共感し、世界に一人の理解者として寄り添うことで、アプリを開くこと自体が毎日の楽しみに変わります。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">2. 日常会話から「学びの種」を見つける</h4>
+              <p class="text-gray-700 leading-relaxed">
+                「今日、公園で珍しい虫を見たよ」という雑談から、「それって何ていう名前？調べて教えて！」と学習モードへ自然に誘導。日常のすべてを学びに変えるきっかけをムチモンが作ります。
+              </p>
+            </div>
+          </div>
+          
+          <!-- スクリーンショットプレースホルダー -->
+          <div class="mt-8 bg-gradient-to-br from-accent-50 to-yellow-50 rounded-xl p-6" data-image="screenshot-chat">
+            <div class="aspect-video bg-white/50 rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-accent-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                </svg>
+                <p class="text-accent-600 text-sm font-medium">おしゃべりモード画面</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: クエスト機能 -->
+      <div class="mb-20">
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div class="flex items-center mb-6">
+            <div class="bg-purple-100 rounded-full p-3 mr-4">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">③クエスト機能：飽きさせない「継続のエンジニアリング」</h3>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">1. 「やらされる宿題」を「挑みたくなるミッション」に</h4>
+              <p class="text-gray-700 leading-relaxed">
+                デイリークエストや期間限定イベントなど、ゲーム感覚で取り組める仕掛けが満載。クリアするごとにムチモンが成長したり、新しい衣装が手に入ったりと、お子様の所有欲と達成感を刺激します。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">2. シーズンを通した長期的な成功体験</h4>
+              <p class="text-gray-700 leading-relaxed">
+                短期的な目標だけでなく、数ヶ月かけて達成するマンスリークエストにより、一つのことをやり遂げる忍耐力と習慣化をサポート。報酬（着せ替え）という目に見える成果が自信に繋がります。
+              </p>
+            </div>
+          </div>
+          
+          <!-- スクリーンショットプレースホルダー -->
+          <div class="mt-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6" data-image="screenshot-quest">
+            <div class="aspect-video bg-white/50 rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-purple-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                </svg>
+                <p class="text-purple-600 text-sm font-medium">クエスト画面</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4: 振り返り＆レポート -->
+      <div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div class="flex items-center mb-6">
+            <div class="bg-green-100 rounded-full p-3 mr-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">④振り返り＆レポート：親子の信頼をデザインする可視化</h3>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">1. 言葉の裏にある「心情の変化」までキャッチ</h4>
+              <p class="text-gray-700 leading-relaxed">
+                単なる正答率のレポートではありません。おしゃべりモードの会話から、お子様がいま何にワクワクし、何に不安を感じているかをAIが分析。親御さんが「今、かけるべき言葉」をそっと教えます。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h4 class="text-xl font-bold text-gray-800">2. 「教えた履歴」で成長の軌跡を実感</h4>
+              <p class="text-gray-700 leading-relaxed">
+                お子様がムチモンに何をどう説明したかの履歴を保存。過去の復習はもちろん、「こんなに難しいことを説明できるようになったんだ」という成長のプロセスを、親子で一緒に振り返ることができます。
+              </p>
+            </div>
+          </div>
+          
+          <!-- スクリーンショットプレースホルダー -->
+          <div class="mt-8 bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6" data-image="screenshot-report">
+            <div class="aspect-video bg-white/50 rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-green-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="text-green-600 text-sm font-medium">レポート画面</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== Difference Section (FAQ/Accordion) ========== -->
+  <section id="difference" class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          競合他社との違い
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          「ただのAI」ではない。教わる場所から「教える」場所へ。<br>
+          従来の教育アプリや最新のAI学習システムはいわば「デジタル上の優秀な先生」それに対し、「ムチモン」はあなたの"一番の教え子"
+        </p>
+      </div>
+
+      <!-- Accordion Item 1 -->
+      <div class="mb-6">
+        <div class="bg-white border-2 border-gray-200 rounded-xl overflow-hidden">
+          <button 
+            class="accordion-button w-full text-left p-6 md:p-8 flex justify-between items-center hover:bg-gray-50 transition"
+            aria-expanded="false"
+            onclick="toggleAccordion(this)"
+          >
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-4">
+              他のAI学習と何が違うの？
+            </h3>
+            <svg class="accordion-icon w-6 h-6 text-primary-600 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="p-6 md:p-8 pt-0 space-y-6">
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「効率的な分析」から「深い理解を引き出す対話」へ</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">AIがお子様のつまづきを特定し、自動で戻り学習や演習を提示する「個別最適化」を得意としている。</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">AIが「わからないふり」をして質問を投げかける。お子様が自分の言葉で説明し、AIを納得させるプロセスを通じて、分析される側から「主体的に思考を言語化する側」へと立場を逆転させ、深い定着を生む。</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「問題を解かせるAI」から「解き方を一緒に悩むAI」へ</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">診断結果に基づき「次に解くべき問題」を次々と提示する「ドリル型」が中心。</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">お子様の学習内容に対して、「ここはどう考えるの？」「次はどうすればいい？」と隣で悩む伴走者。正解にたどり着くまでの「思考のプロセス」に寄り添い、孤独な学習を共同作業に変える。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div class="mb-6">
+        <div class="bg-white border-2 border-gray-200 rounded-xl overflow-hidden">
+          <button 
+            class="accordion-button w-full text-left p-6 md:p-8 flex justify-between items-center hover:bg-gray-50 transition"
+            aria-expanded="false"
+            onclick="toggleAccordion(this)"
+          >
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-4">
+              塾と何が違うの？
+            </h3>
+            <svg class="accordion-icon w-6 h-6 text-primary-600 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="p-6 md:p-8 pt-0 space-y-6">
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「時間の制約があるサポート」から「24時間365日の絆」へ</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">人による手厚いサポートには必ず「時間の制限」や「やり取りのラグ」が発生する。</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">深夜でも早朝でも、お子様が「教えたい！」「聞いてほしい！」と思った瞬間に100%の熱量で応える。温もりを感じさせながら、いつでも隣にいる安心感を提供する。</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「週1回の面談」を超える、リアルタイムな心情把握</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">トレーナーによる進捗管理や保護者面談が行われるがリアルタイムではない</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">スタンダード・プレミアムプランでは、AIがお子様との会話から「気分・自己否定傾向・悩み」などの小さなサインを分析し、ダッシュボードやアラートで親御さんへ即座に共有します。専門家が家庭と同じ地図を見て支援するような、一歩踏み込んだサポート体制を24時間稼働させることができます。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div class="mb-6">
+        <div class="bg-white border-2 border-gray-200 rounded-xl overflow-hidden">
+          <button 
+            class="accordion-button w-full text-left p-6 md:p-8 flex justify-between items-center hover:bg-gray-50 transition"
+            aria-expanded="false"
+            onclick="toggleAccordion(this)"
+          >
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-4">
+              続けられるの？
+            </h3>
+            <svg class="accordion-icon w-6 h-6 text-primary-600 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="p-6 md:p-8 pt-0 space-y-6">
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「やらされる義務感」から「助けてあげたい使命感」へ</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">管理機能によって継続を促すが、基本的にはお子様の「自走（強い意志）」が求められる。</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">おしゃべりモード」があり、日常の会話を通じて絆を育む。「ムチモンが僕の教えを待っている」という使命感が、アプリを開くハードルを劇的に下げ、自発的な学習習慣を作る。</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="border-l-4 border-primary-500 pl-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">「点数による評価」から「クエストと報酬による達成感」へ</h4>
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-sm font-semibold text-gray-600 mb-1">従来：</p>
+                    <p class="text-gray-700">「点数が上がる」という結果が出るまで報酬が得にくい</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-primary-600 mb-1">ムチモン：</p>
+                    <p class="text-gray-700">勉強をするたびにムチモンの着せ替え衣装などの報酬がもらえるため、小さな成功体験が積み重なり、「もっと頑張りたい」という意欲がゲームのように持続する。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== Benefits Section ========== -->
+  <section id="benefits" class="py-16 md:py-24 soft-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          ムチモンで得られること
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          お子様の未来と、親子関係の質を変える4つのベネフィット
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Benefit 1 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            一生モノの「説明力」と「自己肯定感」が育つ
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">論理的な言語化の習慣</p>
+                <p class="text-gray-600 text-sm mt-1">学んだことを言語化する習慣は、受験だけでなく社会に出た後の「伝える力」の土台になります。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">「前向きさ」を育む成功体験</p>
+                <p class="text-gray-600 text-sm mt-1">教えることで相棒に感謝される体験は、お子様の自己肯定感を高めます。ムチモンとの関係形成を通じて、学習に対する「前向きさ」を最大化します。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            「やらされる勉強」から「自走する習慣」への脱却
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">責任感が主体性を引き出す</p>
+                <p class="text-gray-600 text-sm mt-1">「ムチモンに教えてあげよう」という責任感が、子供の主体性を劇的に引き出します。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">驚異の継続率（学習習慣）</p>
+                <p class="text-gray-600 text-sm mt-1">孤独な作業が「相棒との時間」に変わることで、お子様が自発的に机に向かう頻度と時間が劇的に向上します。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            親子関係のストレスが減り、「良質な会話」が増える
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">「勉強しなさい」を卒業</p>
+                <p class="text-gray-600 text-sm mt-1">ムチモンが学習の伴走を担うため、親子の衝突回数が減り、お互いのストレスが大幅に軽減されます。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">具体的で温かい声かけ</p>
+                <p class="text-gray-600 text-sm mt-1">レポート機能により、お子様が今何に興味を持ち、何に悩んでいるかが一目で分かります。勉強内容を把握できるからこそ、具体的な承認の声かけが可能になります。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            学習とメンタルの「ブラックボックス化」を防ぐ
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">心のアラートをキャッチ</p>
+                <p class="text-gray-600 text-sm mt-1">AIが会話内容から気分の低下や自己否定の傾向を分析。学習面だけでなく、親でも気づきにくいメンタル面の管理も行います。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">家庭と支援者が同じ地図を見る</p>
+                <p class="text-gray-600 text-sm mt-1">プレミアムプランでは、お子様の学習急減などの「注意サイン」をリアルタイムで把握。家庭の不安を減らす可視化により、手遅れになる前に適切な支援判断がしやすくなります。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Pricing Section ========== -->
+  <section id="pricing" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          料金プラン
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          ご家庭のニーズに合わせた3つのプランをご用意
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- ライトプラン -->
+        <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-200 p-8 card-hover">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">ライトプラン</h3>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              ¥4,980<span class="text-lg text-gray-600">〜</span>
+            </div>
+            <p class="text-gray-600">/ 月</p>
+          </div>
+          
+          <p class="text-center text-gray-700 font-medium mb-6 px-2 py-3 bg-gray-50 rounded-lg">
+            「まずは机に向かう習慣をつけたい」ご家庭へ
+          </p>
+          
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">AIによる徹底伴走</p>
+                <p class="text-sm text-gray-600 mt-1">AIキャラクターが声かけや宿題サポートを行い、孤独な学習を楽しい時間に変えます。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">学習の可視化</p>
+                <p class="text-sm text-gray-600 mt-1">学習日数や時間をグラフ化。お子様の「前向き度」も簡易表示されるので、日々の変化がわかります。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">親子の絆をサポート</p>
+                <p class="text-sm text-gray-600 mt-1">汎用的な「声かけ例」をヒントとして提供。保護者アカウント1名まで共有可能です。</p>
+              </div>
+            </li>
+          </ul>
+          
+          <a href="#" class="cta-button block text-center bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 transition font-bold">
+            詳細を見る
+          </a>
+        </div>
+
+        <!-- スタンダードプラン（推奨） -->
+        <div class="bg-white rounded-2xl shadow-2xl border-4 border-primary-500 p-8 relative card-hover transform md:scale-105">
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <span class="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+              おすすめ
+            </span>
+          </div>
+          
+          <div class="text-center mb-6 mt-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">スタンダードプラン</h3>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              ¥12,800<span class="text-lg text-gray-600">〜</span>
+            </div>
+            <p class="text-gray-600">/ 月</p>
+          </div>
+          
+          <p class="text-center text-gray-700 font-medium mb-6 px-2 py-3 bg-primary-50 rounded-lg">
+            「お子様の心に寄り添った声かけをしたい」ご家庭へ
+          </p>
+          
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">心情の変化を可視化</p>
+                <p class="text-sm text-gray-600 mt-1">学習状況だけでなく「気分」や「テーマの傾向」を統合分析。随時アップデートで状態のサマリーを届けます。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">"次の一手"をガイド</p>
+                <p class="text-sm text-gray-600 mt-1">「今週のミッション」や「OK/NG声かけ例」「地雷ワード」を具体的にアドバイスし、親子の衝突を防ぎます。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">悩み・関心の傾向分析</p>
+                <p class="text-sm text-gray-600 mt-1">お子様がいま何に悩み、何に興味を持っているかを断定せずに示し、会話のきっかけを作ります。</p>
+              </div>
+            </li>
+          </ul>
+          
+          <a href="#" class="cta-button block text-center bg-primary-600 text-white px-6 py-3 rounded-full hover:bg-primary-700 transition font-bold shadow-lg">
+            今すぐ始める
+          </a>
+        </div>
+
+        <!-- プレミアムプラン -->
+        <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-200 p-8 card-hover">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">プレミアムプラン</h3>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              ¥19,800<span class="text-lg text-gray-600">〜</span>
+            </div>
+            <p class="text-gray-600">/ 月</p>
+          </div>
+          
+          <p class="text-center text-gray-700 font-medium mb-6 px-2 py-3 bg-gray-50 rounded-lg">
+            「小さなサインを逃さず、チームで見守りたい」ご家庭へ
+          </p>
+          
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">メンタルアラート機能</p>
+                <p class="text-sm text-gray-600 mt-1">気分の低下、自己否定傾向、学習の急減など、見逃したくない「注意サイン」をいち早くアラートで通知します。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">プロの視点での共有</p>
+                <p class="text-sm text-gray-600 mt-1">要点3行まとめや声かけ方針テンプレートなど、支援者向けの専用ビューを提供します。</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-800">家庭と支援者の連携</p>
+                <p class="text-sm text-gray-600 mt-1">PDF出力や共有リンク機能により、教員や支援者と同じデータを見ながら、一貫したサポート体制を築けます。</p>
+              </div>
+            </li>
+          </ul>
+          
+          <a href="#" class="cta-button block text-center bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 transition font-bold">
+            詳細を見る
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600">
+          ※すべてのプランで7日間の無料トライアルをご利用いただけます<br>
+          ※料金は税込表示です
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Final CTA Section ========== -->
+  <section class="py-16 md:py-24 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+        今すぐ、お子様に「相棒」を
+      </h2>
+      <p class="text-xl text-white/90 mb-10 leading-relaxed">
+        孤独な勉強時間を、相棒との楽しい時間に。<br>
+        「教わる」から「教える」へ、学びのスタイルを変えてみませんか？
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+        <a href="#" class="cta-button inline-block bg-white text-primary-700 px-10 py-4 rounded-full hover:bg-gray-100 transition font-bold text-lg shadow-2xl">
+          無料で始める
+        </a>
+        <a href="#pricing" class="inline-block border-2 border-white text-white px-10 py-4 rounded-full hover:bg-white/10 transition font-bold text-lg">
+          料金を見る
+        </a>
+      </div>
+      
+      <p class="text-white/80 text-sm">
+        7日間無料トライアル実施中 | クレジットカード不要
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <h3 class="text-2xl font-bold text-white mb-4">ムチモン</h3>
+          <p class="text-gray-400 mb-4">
+            AI相棒と一緒に学ぶ新時代の学習アプリ。<br>
+            お子様の可能性を最大限に引き出します。
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">リンク</h4>
+          <ul class="space-y-2">
+            <li><a href="#features" class="hover:text-white transition">特徴</a></li>
+            <li><a href="#difference" class="hover:text-white transition">違い</a></li>
+            <li><a href="#benefits" class="hover:text-white transition">ベネフィット</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">料金</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">サポート</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition">お問い合わせ</a></li>
+            <li><a href="#" class="hover:text-white transition">よくある質問</a></li>
+            <li><a href="#" class="hover:text-white transition">利用規約</a></li>
+            <li><a href="#" class="hover:text-white transition">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 ムチモン. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JavaScript ========== -->
+  <script>
+    // CTA URL Configuration
+    const CTA_URL = "#"; // ここにCVボタンのURLを設定
+    
+    // Initialize all CTA buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(button => {
+        if (button.getAttribute('href') === '#' || button.getAttribute('href') === '') {
+          button.setAttribute('href', CTA_URL);
+        }
+      });
+    });
+    
+    // Accordion functionality
+    function toggleAccordion(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.accordion-icon');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      // Close all accordions
+      document.querySelectorAll('.accordion-button').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.nextElementSibling.classList.remove('active');
+        btn.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+      });
+      
+      // Open clicked accordion if it was closed
+      if (!isExpanded) {
+        button.setAttribute('aria-expanded', 'true');
+        content.classList.add('active');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== CTA_URL) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const offsetTop = target.offsetTop - 80; // Header height offset
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+    
+    // Intersection Observer for fade-in animations
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe elements with fade-in class
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    }
+  </script>
+
+</body>
+</html>
