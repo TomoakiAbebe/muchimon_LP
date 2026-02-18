@@ -32,9 +32,10 @@ async function loadSections() {
     }
     
     try {
-        // 各セクションを順番に読み込み
+        // 各セクションを順番に読み込み（キャッシュバスティング付き）
+        const timestamp = new Date().getTime();
         for (const section of SECTIONS) {
-            const response = await fetch(`./sections/${section}.html`);
+            const response = await fetch(`./sections/${section}.html?v=${timestamp}`);
             
             if (!response.ok) {
                 throw new Error(`Failed to load section: ${section}.html (Status: ${response.status})`);
