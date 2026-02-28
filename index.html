@@ -6,6 +6,9 @@
     <title>ムチモン - AIが見守る、子どもの「できた！」が育つ学習アプリ</title>
     <meta name="description" content="ムチモンは、AIが子ども一人ひとりの学習をサポートする新しい学習アプリです。親の負担を減らしながら、子どもの自立した学習習慣を育てます。">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./assets/images/001.jpg">
+    
     <!-- OGP -->
     <meta property="og:title" content="ムチモン - AIが見守る、子どもの「できた！」が育つ学習アプリ">
     <meta property="og:description" content="ムチモンは、AIが子ども一人ひとりの学習をサポートする新しい学習アプリです。親の負担を減らしながら、子どもの自立した学習習慣を育てます。">
@@ -149,6 +152,31 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+        
+        /* ハンバーガーメニューアニメーション */
+        .hamburger-open #hamburger-line-1 {
+            top: 0 !important;
+            transform: rotate(45deg);
+        }
+        
+        .hamburger-open #hamburger-line-2 {
+            opacity: 0;
+        }
+        
+        .hamburger-open #hamburger-line-3 {
+            top: 0 !important;
+            transform: rotate(-45deg);
+        }
+        
+        /* メニューオープン時 */
+        .menu-open {
+            transform: translateX(0) !important;
+        }
+        
+        /* ボディスクロール防止 */
+        body.menu-open-body {
+            overflow: hidden;
         }
     </style>
 </head>

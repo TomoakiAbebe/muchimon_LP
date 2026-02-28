@@ -87,6 +87,78 @@ function initializePage() {
     applyCTAUrls();
     initializeAccordion();
     initializeSmoothScroll();
+    initializeMobileMenu();
+}
+
+/**
+ * モバイルメニューの初期化
+ */
+function initializeMobileMenu() {
+    const button = document.getElementById('mobile-menu-button');
+    const closeButton = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const body = document.body;
+    
+    function openMenu() {
+        console.log('Opening mobile menu');
+        menu.classList.add('menu-open');
+        overlay.classList.remove('hidden');
+        button.classList.add('hamburger-open');
+        button.setAttribute('aria-expanded', 'true');
+        button.setAttribute('aria-label', 'メニューを閉じる');
+        body.classList.add('menu-open-body');
+    }
+    
+    function closeMenu() {
+        console.log('Closing mobile menu');
+        menu.classList.remove('menu-open');
+        overlay.classList.add('hidden');
+        button.classList.remove('hamburger-open');
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'メニューを開く');
+        body.classList.remove('menu-open-body');
+    }
+    
+    if (button && menu && overlay) {
+        // ハンバーガーボタンクリック
+        button.addEventListener('click', () => {
+            console.log('Hamburger button clicked');
+            const isOpen = menu.classList.contains('menu-open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+        
+        // 閉じるボタンクリック
+        if (closeButton) {
+            closeButton.addEventListener('click', closeMenu);
+        }
+        
+        // オーバーレイクリック
+        overlay.addEventListener('click', closeMenu);
+        
+        // メニュー内のリンククリック
+        const menuLinks = menu.querySelectorAll('.mobile-menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+        
+        // ESCキーで閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('menu-open')) {
+                closeMenu();
+            }
+        });
+        
+        console.log('Mobile menu initialized successfully');
+    } else {
+        console.error('Mobile menu elements not found:', { button, menu, overlay });
+    }
 }
 
 /**
@@ -157,9 +229,9 @@ function initializeSmoothScroll() {
             if (target) {
                 e.preventDefault();
                 
-                // ヘッダーの高さを考慮してスクロール
+                // ヘッダーの高さを考慮してスクロール（セクションの上端をヘッダー直下に配置）
                 const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,

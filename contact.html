@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - ムチモン</title>
+    <meta name="description" content="ムチモンへのお問い合わせフォームです。">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./assets/images/001.jpg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#e8f5fc',
+                            100: '#c9e8f8',
+                            200: '#a6d9f4',
+                            300: '#7fc9f0',
+                            400: '#51b5e7',
+                            500: '#1E91D9',
+                            600: '#1a7bc0',
+                            700: '#1565a7',
+                            800: '#10508e',
+                            900: '#0c3a75',
+                        },
+                        secondary: {
+                            50: '#f2eefc',
+                            100: '#ddd2f5',
+                            200: '#c8b5ee',
+                            300: '#b398e7',
+                            400: '#a37be0',
+                            500: '#9265C0',
+                            600: '#7d54a8',
+                            700: '#684390',
+                            800: '#533378',
+                            900: '#3e2260',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="./index.html" class="flex items-center">
+                        <img src="./assets/images/001.jpg?v=2" alt="ムチモン" class="h-10 w-auto">
+                    </a>
+                </div>
+                <nav class="flex items-center space-x-8">
+                    <a href="./index.html" class="text-gray-700 hover:text-primary-600 transition font-medium">
+                        トップに戻る
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <!-- タイトル -->
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">
+                        お問い合わせ
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        ご質問やご不明な点がございましたら、お気軽にお問い合わせください。
+                    </p>
+                </div>
+
+                <!-- フォーム -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+                    <form id="contactForm" class="space-y-6">
+                        <!-- お名前 -->
+                        <div>
+                            <label for="name" class="block text-sm font-bold text-gray-900 mb-2">
+                                お名前 <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+                                placeholder="山田 太郎"
+                            >
+                        </div>
+
+                        <!-- メールアドレス -->
+                        <div>
+                            <label for="email" class="block text-sm font-bold text-gray-900 mb-2">
+                                メールアドレス <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+                                placeholder="example@email.com"
+                            >
+                        </div>
+
+                        <!-- お問い合わせ種別 -->
+                        <div>
+                            <label for="category" class="block text-sm font-bold text-gray-900 mb-2">
+                                お問い合わせ種別 <span class="text-red-500">*</span>
+                            </label>
+                            <select 
+                                id="category" 
+                                name="category" 
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+                            >
+                                <option value="">選択してください</option>
+                                <option value="service">サービスについて</option>
+                                <option value="pricing">料金プランについて</option>
+                                <option value="technical">技術的なお問い合わせ</option>
+                                <option value="business">法人・団体での利用について</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+
+                        <!-- お問い合わせ内容 -->
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-gray-900 mb-2">
+                                お問い合わせ内容 <span class="text-red-500">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required
+                                rows="6"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none"
+                                placeholder="お問い合わせ内容をご記入ください"
+                            ></textarea>
+                        </div>
+
+                        <!-- 送信ボタン -->
+                        <div class="pt-4">
+                            <button 
+                                type="submit" 
+                                id="submitBtn"
+                                class="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
+                            >
+                                送信する
+                            </button>
+                        </div>
+
+                        <!-- 成功メッセージ -->
+                        <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <p class="text-green-800 text-center font-medium">
+                                ✓ お問い合わせを送信しました。ありがとうございます。
+                            </p>
+                        </div>
+
+                        <!-- エラーメッセージ -->
+                        <div id="errorMessage" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <p class="text-red-800 text-center font-medium">
+                                送信に失敗しました。お手数ですが、もう一度お試しください。
+                            </p>
+                        </div>
+                    </form>
+
+                    <!-- 補足情報 -->
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 text-center">
+                            お問い合わせいただいた内容は、info@minakano.co.jp 宛に送信されます。<br>
+                            通常、2営業日以内にご返信いたします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-sm text-gray-500">
+                <p>&copy; 2026 ムチモン. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // ボタンを無効化
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            
+            // メッセージを非表示
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            // フォームデータを取得
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                category: formData.get('category'),
+                message: formData.get('message'),
+                to: 'info@minakano.co.jp'
+            };
+
+            try {
+                // FormSubmitを使用してメール送信
+                const response = await fetch('https://formsubmit.co/ajax/info@minakano.co.jp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: data.name,
+                        email: data.email,
+                        category: data.category,
+                        message: data.message,
+                        _subject: `【ムチモン】お問い合わせ - ${data.category}`,
+                        _template: 'table'
+                    })
+                });
+
+                if (response.ok) {
+                    // 成功
+                    successMessage.classList.remove('hidden');
+                    form.reset();
+                    
+                    // 3秒後にトップページに戻る
+                    setTimeout(() => {
+                        window.location.href = './index.html';
+                    }, 3000);
+                } else {
+                    // エラー
+                    errorMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.classList.remove('hidden');
+            } finally {
+                // ボタンを有効化
+                submitBtn.disabled = false;
+                submitBtn.textContent = '送信する';
+            }
+        });
+    </script>
+</body>
+</html>
